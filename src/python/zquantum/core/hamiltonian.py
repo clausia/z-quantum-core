@@ -277,7 +277,13 @@ def estimate_nmeas_for_frames(
         nterms (int): number of groups in frame_operators
         frame_meas (np.array): Number of optimal measurements per group
     """
+    print("Frame operators:")
+    print(frame_operators)
+    print("Expectation values:")
+    print(expecval)
     frame_variances = compute_group_variances(frame_operators, expecval)
+    print("Frame variances:")
+    print(frame_variances)
     sqrt_lambda = sum(np.sqrt(frame_variances))
     frame_meas = sqrt_lambda * np.sqrt(frame_variances)
     K2 = sum(frame_meas)
