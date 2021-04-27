@@ -28,6 +28,7 @@ setuptools.setup(
     author="Zapata Computing, Inc.",
     author_email="info@zapatacomputing.com",
     description="A core library of the scientific code for Orquestra.",
+    use_scm_version=True,
     long_description=_read_readme(),
     long_description_content_type="text/markdown",
     url="https://github.com/zapatacomputing/z-quantum-core",
@@ -54,5 +55,4 @@ setuptools.setup(
     ],
     extras_require=extras_require,
     setup_requires=["setuptools_scm"],
-    use_scm_version=True,
 )
