@@ -28,6 +28,8 @@ setuptools.setup(
     author="Zapata Computing, Inc.",
     author_email="info@zapatacomputing.com",
     description="A core library of the scientific code for Orquestra.",
+    # Note: the package version is dynamically inferred from git tag/commit at
+    # install-time.
     use_scm_version=True,
     long_description=_read_readme(),
     long_description_content_type="text/markdown",
