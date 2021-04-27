@@ -56,4 +56,5 @@ setuptools.setup(
         "overrides>=3.1.0",
     ],
     extras_require=extras_require,
+    setup_requires=["setuptools_scm"],
 )
