@@ -22,9 +22,15 @@ def _read_readme():
         return f.read()
 
 
+def _read_version():
+    this_path = os.path.abspath(os.path.dirname(__file__))
+    with open(os.path.join(this_path, "version"), encoding="utf-8") as f:
+        return f.read()
+
+
 setuptools.setup(
     name="z-quantum-core",
-    version="0.2.0.dev4",
+    version=_read_version(),
     license="Apache-2.0",
     author="Zapata Computing, Inc.",
     author_email="info@zapatacomputing.com",
