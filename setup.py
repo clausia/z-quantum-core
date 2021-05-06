@@ -44,6 +44,7 @@ setuptools.setup(
         include=["zquantum.*"], where="src/python"
     ),
     package_dir={"": "src/python"},
+    include_package_data=True,
     classifiers=[
         "Programming Language :: Python :: 3.7",
         "Operating System :: OS Independent",
