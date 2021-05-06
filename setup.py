@@ -26,7 +26,7 @@ def _read_readme():
 
 
 def _read_version():
-    with open(os.path.join(_this_path(), "version")) as f:
+    with open(os.path.join(_this_path(), "VERSION")) as f:
         return f.read().strip()
 
 
