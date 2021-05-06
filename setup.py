@@ -16,16 +16,18 @@ extras_require = {
 }
 
 
+def _this_path():
+    return os.path.abspath(os.path.dirname(__file__))
+
+
 def _read_readme():
-    this_path = os.path.abspath(os.path.dirname(__file__))
-    with open(os.path.join(this_path, "README.md"), encoding="utf-8") as f:
+    with open(os.path.join(_this_path(), "README.md")) as f:
         return f.read()
 
 
 def _read_version():
-    this_path = os.path.abspath(os.path.dirname(__file__))
-    with open(os.path.join(this_path, "version"), encoding="utf-8") as f:
-        return f.read()
+    with open(os.path.join(_this_path(), "version")) as f:
+        return f.read().strip()
 
 
 setuptools.setup(
