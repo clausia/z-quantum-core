@@ -42,10 +42,10 @@ setuptools.setup(
         include=["zquantum.*"], where="src/python"
     ),
     package_dir={"": "src/python"},
-    classifiers=(
+    classifiers=[
         "Programming Language :: Python :: 3.7",
         "Operating System :: OS Independent",
-    ),
+    ],
     install_requires=[
         "networkx==2.4",
         "numpy>=1.20",
