@@ -70,6 +70,8 @@ circuit = build_ansatz_circuit(ansatz, params)
 save_circuit(circuit, "circuit.json")
 ```
 
+(testing)
+
 Even though it's intended to be used with Orquestra, `z-quantum-core` can be also used as a standalone Python module.
 To install it, you just need to run `pip install -e .` from the main directory. )
 
