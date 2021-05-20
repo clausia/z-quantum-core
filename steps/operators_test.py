@@ -9,7 +9,7 @@ from openfermion import (
     get_ground_state,
     get_sparse_operator,
 )
-from operators import (
+from .operators import (
     concatenate_qubit_operator_lists,
     get_one_qubit_hydrogen_hamiltonian,
 )
