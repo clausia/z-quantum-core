@@ -66,3 +66,8 @@ XX = make_parametric_gate_prototype("XX", _matrices.xx_matrix, 2)
 YY = make_parametric_gate_prototype("YY", _matrices.yy_matrix, 2)
 ZZ = make_parametric_gate_prototype("ZZ", _matrices.zz_matrix, 2)
 XY = make_parametric_gate_prototype("XY", _matrices.xy_matrix, 2)
+
+
+# --- non-parametric, three qubit gates ---
+
+CCNOT = _gates.MatrixFactoryGate("CCNOT", _matrices.ccnot_matrix, (), 3, is_hermitian=True)

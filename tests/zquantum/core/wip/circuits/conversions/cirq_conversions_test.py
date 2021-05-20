@@ -20,6 +20,7 @@ EQUIVALENT_NON_PARAMETRIC_GATES = [
     (_builtin_gates.S, cirq.S),
     (_builtin_gates.T, cirq.T),
     (_builtin_gates.CNOT, cirq.CNOT),
+    (_builtin_gates.CCNOT, cirq.CCNOT),
     (_builtin_gates.CZ, cirq.CZ),
     (_builtin_gates.SWAP, cirq.SWAP),
     (_builtin_gates.ISWAP, cirq.ISWAP),

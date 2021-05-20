@@ -21,6 +21,7 @@ EQUIVALENT_NON_PARAMETRIC_GATES = [
     (_builtin_gates.S, qiskit.circuit.library.SGate()),
     (_builtin_gates.T, qiskit.circuit.library.TGate()),
     (_builtin_gates.CNOT, qiskit.extensions.CXGate()),
+    (_builtin_gates.CCNOT, qiskit.extensions.CCXGate()),
     (_builtin_gates.CZ, qiskit.extensions.CZGate()),
     (_builtin_gates.SWAP, qiskit.extensions.SwapGate()),
     (_builtin_gates.ISWAP, qiskit.extensions.iSwapGate()),
@@ -51,6 +52,19 @@ TWO_QUBIT_SWAP_MATRIX = np.array(
     ]
 )
 
+THREE_QUBIT_SWAP_MATRIX = np.array(
+    [
+        [1, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 1, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 1, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 1, 0],
+        [0, 1, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 1, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 1, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 1],
+    ]
+)
+
 
 def _fix_qubit_ordering(qiskit_matrix):
     """Import qiskit matrix to ZQuantum matrix convention.
@@ -61,6 +75,8 @@ def _fix_qubit_ordering(qiskit_matrix):
         return qiskit_matrix
     if len(qiskit_matrix) == 4:
         return TWO_QUBIT_SWAP_MATRIX @ qiskit_matrix @ TWO_QUBIT_SWAP_MATRIX
+    if len(qiskit_matrix) == 8:
+        return THREE_QUBIT_SWAP_MATRIX @ qiskit_matrix @ THREE_QUBIT_SWAP_MATRIX
     else:
         raise ValueError(f"Unsupported matrix size: {len(qiskit_matrix)}")
 
@@ -173,6 +189,20 @@ EQUIVALENT_NON_PARAMETRIZED_CIRCUITS = [
             4,
             [
                 ("cnot", (0, 1)),
+            ],
+        ),
+    ),
+    (
+        _circuit.Circuit(
+            [
+                _builtin_gates.CCNOT(0, 1, 2),
+            ],
+            5,
+        ),
+        _make_qiskit_circuit(
+            5,
+            [
+                ("ccx", (0, 1, 2)),
             ],
         ),
     ),

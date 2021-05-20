@@ -115,6 +115,7 @@ Extending built-in gates requires:
 """
 
 from ._builtin_gates import (
+    CCNOT,
     CNOT,
     CPHASE,
     CZ,

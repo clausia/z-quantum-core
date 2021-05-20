@@ -115,6 +115,18 @@ EQUIVALENT_CIRCUITS = [
         ),
     ),
     (
+        _circuit.Circuit(
+            [
+                _builtin_gates.CCNOT(3, 1, 0),
+            ]
+        ),
+        pyquil.Program(
+            [
+                pyquil.gates.CCNOT(3, 1, 0),
+            ]
+        ),
+    ),
+    (
         _circuit.Circuit([_builtin_gates.RX(np.pi)(1)]),
         pyquil.Program([pyquil.gates.RX(np.pi, 1)]),
     ),
