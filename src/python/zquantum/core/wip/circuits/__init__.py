@@ -130,6 +130,7 @@ from ._builtin_gates import (
     XY,
     YY,
     ZZ,
+    HZ,
     H,
     I,
     S,

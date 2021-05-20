@@ -216,3 +216,16 @@ def xy_matrix(angle):
             [0, 0, 0, 1],
         ]
     )
+
+def iz_matrix(angle):
+    return sympy.Matrix(
+        [
+            [sympy.exp(-1 * sympy.I * angle / 2), 0, 0, 0],
+            [0, sympy.exp(sympy.I * angle / 2), 0, 0],
+            [0, 0, sympy.exp(-1 * sympy.I * angle / 2), 0],
+            [0, 0, 0, sympy.exp(sympy.I * angle / 2)],
+        ]
+    )
+
+def hz_matrix(angle):
+    return cnot_matrix() @ iz_matrix(angle) @ cnot_matrix()
